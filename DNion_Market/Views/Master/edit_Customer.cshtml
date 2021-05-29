@@ -1,0 +1,42 @@
+﻿@model DNion_Market.ViewModels.MasterViewModel
+@{
+    ViewBag.Title = "Update Customer";
+}
+<head>
+</head>
+<body>
+    <h2 style="text-align:center">Update Customer</h2>
+    <br />
+    <form>
+        <fieldset>
+            @foreach(var cust in ViewBag.cust){
+                <div class="form-group">
+                    <label for="name">Nama:</label>
+                    <input type="text" class="form-control" id="name" value="@cust.name">
+                </div>
+                <div class="form-group">
+                    <label for="address">Alamat:</label>
+                    <input type="text" class="form-control" id="address" value="@cust.address">
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" class="form-control" id="email" value="@cust.email">
+                </div>
+                <button type="button" class="btn btn-default" onclick="create()">Submit</button>
+            }
+        </fieldset>
+    </form>
+</body>
+
+<script>
+
+    function create() {
+        var id = @ViewBag.id;
+        var name = $('#name').val();
+        var addr = $('#address').val();
+        var email = $('#email').val();
+
+        location.href = '@Url.Action("Update_Customer", "Master")?id=' + id + '&name=' + name + '&addr=' + addr + '&email=' + email;
+    }
+
+</script>

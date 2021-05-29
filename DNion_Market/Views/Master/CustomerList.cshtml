@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "CustomerList";
+}
+
+<head>
+    
+</head>
+<body>
+    <h2 style="text-align:center">Customer List</h2>
+    <br />
+    <button onclick="addFunction()" style="color:black">Add Customer</button>
+    <small>
+        <iframe id="fieldDetail" name="fieldDetail" style="width:100%; height:400px" src="@Url.Action("read_CustomerList", "Master")"></iframe>
+    </small>
+</body>
+
+<script>
+    function addFunction() {
+        location.href = '@Url.Action("add_Customer", "Master")';
+    }
+    function updateFunction() {
+        location.href = '@Url.Action("update_Customer","Master")';
+    }
+    function deleteFunction() {
+        location.href = '@Url.Action("delete_Customer","Master")';
+    }
+
+</script>
